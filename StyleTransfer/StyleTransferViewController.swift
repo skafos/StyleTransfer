@@ -12,7 +12,7 @@ import CoreML
 
 class StyleTransferViewController: ViewController {
   
-    private let modelName:String = "StyleTransfer.mlmodel"
+    private let modelName:String = "StyleTransfer.mlmodel.gz"
     private var myStyleTransfer:StyleTransfer! = StyleTransfer()
     private var selectedImage: UIImage! = nil
   
