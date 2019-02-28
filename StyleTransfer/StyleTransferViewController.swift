@@ -2,8 +2,8 @@
 //  StyleTransferViewController.swift
 //  StyleTransfer
 //
-//  Created by Kevin Musselman on 1/7/19.
-//  Copyright © 2019 Kevin Musselman. All rights reserved.
+//  Created by Skafos.ai on 1/9/19.
+//  Copyright © 2019 Metis Machine, LLC. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import CoreML
 
 class StyleTransferViewController: ViewController {
   
-    private let modelName:String = "StyleTransfer.mlmodel.gz"
+    private let assetName:String = "StyleTransfer.mlmodel"
     private var myStyleTransfer:StyleTransfer! = StyleTransfer()
     private var selectedImage: UIImage! = nil
   
@@ -36,7 +36,7 @@ class StyleTransferViewController: ViewController {
        Receive Notification When New Model Has Been Downloaded And Compiled
        ***/
       
-      NotificationCenter.default.addObserver(self, selector: #selector(StyleTransferViewController.reloadModel(_:)), name: Skafos.Notifications.modelUpdateNotification(modelName), object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(StyleTransferViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
   
       /** Receive Notifications for all model updates  **/
       //    NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.reloadModel(_:)), name: Skafos.Notifications.modelUpdated, object: nil)
@@ -44,15 +44,14 @@ class StyleTransferViewController: ViewController {
 
 
     @objc func reloadModel(_ notification:Notification) {
-      print("Model Reloaded")
-      Skafos.load(self.modelName) { (model) in
-        guard let model = model else {
-          print("No model available")
-          return
+        debugPrint("Model Reloaded")
+        Skafos.load(asset: self.assetName) { (error, asset) in
+            guard let model = asset.model else {
+                debugPrint("No model available")
+                return
+            }
+            self.myStyleTransfer.model = model
         }
-  
-        self.myStyleTransfer.model = model
-      }
     }
   
   @objc func selectImageAction(_ sender:Any? = nil) {

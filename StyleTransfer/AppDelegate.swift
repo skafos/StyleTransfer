@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  StyleTransfer
 //
-//  Created by Kevin Musselman on 1/9/19.
-//  Copyright © 2019 Kevin Musselman. All rights reserved.
+//  Created by Skafos.ai on 1/9/19.
+//  Copyright © 2019 Metis Machine, LLC. All rights reserved.
 //
 
 import UIKit
@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     self.window = app.window
 
-    // Skafos app key is required
-    Skafos.configure("<YOUR SKAFOS APP KEY>")
+    // Publishable key is required
+    Skafos.initialize("<YOUR SKAFOS PUBLISHABLE KEY>")
 
     return app.dispatch(launchOptions)
   }
