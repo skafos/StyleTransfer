@@ -319,15 +319,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StyleTransfer/Pods-StyleTransfer-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/Skafos/frameworks/Skafos.framework",
+				"${BUILT_PRODUCTS_DIR}/Skafos/Skafos.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Skafos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -550,7 +548,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/StyleTransfer",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skafos.StyleTransfer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.you.StyleTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,7 +573,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/StyleTransfer",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skafos.StyleTransfer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.you.StyleTransfer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

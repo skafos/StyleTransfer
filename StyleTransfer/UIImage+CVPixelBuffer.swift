@@ -2,8 +2,8 @@
 //  UIImage+CVPixelBuffer.swift
 //  StyleTransfer
 //
-//  Created by Kevin Musselman on 1/9/19.
-//  Copyright © 2018 Wess Cope. All rights reserved.
+//  Created by Skafos.ai on 1/9/19.
+//  Copyright © 2019 Metis Machine, LLC. All rights reserved.
 //
 
 import UIKit
