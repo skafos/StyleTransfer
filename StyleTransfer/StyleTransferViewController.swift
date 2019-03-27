@@ -20,7 +20,24 @@ class StyleTransferViewController: ViewController {
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      
+        
+        // Skafos load cached asset
+        // If you use a tag, Skafos will pull the asset on app load
+        Skafos.load(asset: assetName, tag: "latest") { (error, asset) in
+            // Log the asset in the console
+            console.info(asset)
+            guard error == nil else {
+                console.error("Skafos load asset error: \(String(describing: error))")
+                return
+            }
+            guard let model = asset.model else {
+                console.info("No model available in the asset")
+                return
+            }
+            // Assign model to the myStyleTransfer class
+            self.myStyleTransfer.model = model
+        }
+        
       if let metadata = self.myStyleTransfer.model.modelDescription.metadata[MLModelMetadataKey.creatorDefinedKey] as? [String: Any] {
         if let styles = metadata["num_styles"] as? String {
           self.numberOfStyles = Int(styles) ?? 0
@@ -32,24 +49,26 @@ class StyleTransferViewController: ViewController {
       self.button.addTarget(self, action: #selector(selectImageAction(_:)), for: .touchUpInside)
       self.cameraButton.addTarget(self, action: #selector(takePictureAction(_:)), for: .touchUpInside)
 
-      /***
-       Receive Notification When New Model Has Been Downloaded And Compiled
-       ***/
-      
-      NotificationCenter.default.addObserver(self, selector: #selector(StyleTransferViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
-  
-      /** Receive Notifications for all model updates  **/
-      //    NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.reloadModel(_:)), name: Skafos.Notifications.modelUpdated, object: nil)
+        /***
+         Listen for push noticiations and load the asset from the recieved payload
+         ***/
+        NotificationCenter.default.addObserver(self, selector: #selector(StyleTransferViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
     }
 
 
     @objc func reloadModel(_ notification:Notification) {
-        debugPrint("Model Reloaded")
-        Skafos.load(asset: self.assetName) { (error, asset) in
-            guard let model = asset.model else {
-                debugPrint("No model available")
+        Skafos.load(asset: assetName) { (error, asset) in
+            // Log the asset in the console
+            console.info(asset)
+            guard error == nil else {
+                console.error("Skafos load asset error: \(String(describing: error))")
                 return
             }
+            guard let model = asset.model else {
+                console.info("No model available in the asset")
+                return
+            }
+            // Assign model to the myStyleTransfer class
             self.myStyleTransfer.model = model
         }
     }
