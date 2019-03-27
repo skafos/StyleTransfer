@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     self.window = app.window
 
-    // Publishable key is required
-    Skafos.initialize("<YOUR SKAFOS PUBLISHABLE KEY>")
-
+    // Skafos publishable key is required
+    // You can find it under "app settings" in your project on the Skafos dashboard
+    Skafos.initialize("<PUBLISHABLE KEY>")
+    
     return app.dispatch(launchOptions)
   }
 
