@@ -22,7 +22,7 @@ class StyleTransferViewController: ViewController {
       super.viewDidLoad()
         
         // Skafos load cached asset
-        // If you use a tag, Skafos will pull the asset on app load
+        // If you pass in a tag, Skafos will make a network request to fetch the asset with that tag
         Skafos.load(asset: assetName, tag: "latest") { (error, asset) in
             // Log the asset in the console
             console.info(asset)
@@ -50,7 +50,9 @@ class StyleTransferViewController: ViewController {
       self.cameraButton.addTarget(self, action: #selector(takePictureAction(_:)), for: .touchUpInside)
 
         /***
-         Listen for push noticiations and load the asset from the recieved payload
+          Listen for changes in an asset with the given name. A notification is triggered anytime an
+          asset is downloaded from the servers. This can happen in response to a push notification
+          or when you manually call Skafos.load with a tag like above.         
          ***/
         NotificationCenter.default.addObserver(self, selector: #selector(StyleTransferViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
     }
