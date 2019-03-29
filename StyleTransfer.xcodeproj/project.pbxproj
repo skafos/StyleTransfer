@@ -318,8 +318,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StyleTransfer/Pods-StyleTransfer-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Skafos/Skafos.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-StyleTransfer/Pods-StyleTransfer-frameworks.sh",
+				"${PODS_ROOT}/Skafos/frameworks/Skafos.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -331,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyleTransfer/Pods-StyleTransfer-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StyleTransfer/Pods-StyleTransfer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E79D70A18C1927D8C433843C /* [CP] Check Pods Manifest.lock */ = {
