@@ -1,5 +1,13 @@
 <h1 align="center">Style Transfer by <a href="https://skafos.ai">Skafos</a></h1>
 
+**DEPRECATION WARNING**
+
+This code example was intended for use by the legacy Skafos platform and is no longer being maintained. On 05/29/2019, a new version of [Skafos](https://skafos.ai) was released, streamlining model delivery to the edge.
+
+[Sign-up](https://dashboard.skafos.ai/sign-up) for an account, [join](https://join.slack.com/t/metismachine-skafos/shared_invite/enQtNTAxMzEwOTk2NzA5LThjMmMyY2JkNTkwNDQ1YjgyYjFiY2MyMjRkMzYyM2E4MjUxNTJmYmQyODVhZWM2MjQwMjE5ZGM1Y2YwN2M5ODI) our Slack community, and explore some [example models](https://github.com/skafos/colab-example-models) to get started.
+
+---
+
 StyleTransfer is an example app that uses the Skafos platform for CoreML model integration and delivery. It's a good starting point for diving in, or a good reference for integrating Skafos in to your own app. Skafos is a platform that streamlines CoreML model updates without needing to submit a new version to the app store everytime a new model is ready for use.
 
 This Style Transfer example app specifically integrates and deploys a StyleTransfer machine learning model. [Style Transfer](https://docs.metismachine.io/docs/style-transfer) is a type of machine learning technique that can be used to detect and preserve content features in images, and then applies those features to a new image. For example, you can take a selfie and with Style Transfer, transform it into the style of Van Gogh's The Starry Night. The example model that is provided in this app is trained on plants and will subsequently stylize them using several different style options. For more details about how to use and customize this model please navigate to the [Skafos Turi Style Transfer repo on github](https://github.com/skafos/TuriStyleTransfer).
